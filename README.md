@@ -18,7 +18,7 @@ Extracts the URL of the photo of the day, determines the file extension from the
 
 #### publish_photos_to_tgchannel.py
 Publish photos from the ``images`` folder to the Telegram channel [Space Images](https://t.me/space_imagess) with the delay specified in the argument `timer` at startup.
-If argument `timer` is empty, take environment `PUBLISH_TIMER` parameter (by default 4 hours).
+If argument `timer` is empty, takes environment variable `PUBLISH_TIMER` (by default 4 hours).
 
 #### publish_photo.py
 Publishes the photo the Telegram channel [Space Images](https://t.me/space_imagess) by the name specified in the argument `filename` at startup. If argument is empty, publish random photo from folder. 
@@ -55,7 +55,7 @@ python fetch_epic_images.py
 ```
 python fetch_apod_images.py
 ```
-Startup script argument is the launch `timer`. If `timer` is empty, by default is 14400 seconds .
+Startup script argument is the launch `timer`. If `timer` is empty, the default environment variable `PUBLISH_TIMER` value is 14400 seconds .
 ```
 python publish_photos_to_tgchannel.py 1000
 python publish_photos_to_tgchannel.py
