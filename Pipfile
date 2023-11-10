@@ -6,6 +6,10 @@ name = "pypi"
 [packages]
 requests = "*"
 pathlib = "*"
+python-dotenv = "*"
+argparse = "*"
+datetime = "*"
+python-telegram-bot = "==13.0"
 
 [dev-packages]
 
