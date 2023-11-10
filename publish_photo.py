@@ -12,7 +12,7 @@ def create_parser():
         description='Publish photos to @space_imagess'
     )
     parser.add_argument(
-        'photo',
+        'filename',
         nargs='?',
         help='Enter filename'
     )
@@ -21,9 +21,10 @@ def create_parser():
 
 def main():
     load_dotenv()
-    filename = create_parser().parse_args().photo
+    filename = create_parser().parse_args().filename
     if filename is None:
-        photos = [photo for _, _, files in os.walk('images/') for photo in files]
+        photos = [photo for _, _, files in os.walk('images/')
+                  for photo in files]
         filename = random.choice(photos)
     print(filename)
     chat_id = "@space_imagess"
