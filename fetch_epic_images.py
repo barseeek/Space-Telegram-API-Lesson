@@ -17,10 +17,11 @@ def get_nasa_epic_photos():
     photos = response.json()
     for photo in photos:
         filename = "{0}.{1}".format(photo["image"], "png")
-        date_string = datetime.fromisoformat(photo["date"]).date().strftime("%Y/%m/%d")
-        image_url = "/".join([save_url, date_string, "png", filename ])
-        response = requests.get(image_url,params=params)
-        save_photo(response.url,filename)
+        date_string = datetime.fromisoformat(photo["date"]) \
+            .date().strftime("%Y/%m/%d")
+        image_url = "/".join([save_url, date_string, "png", filename])
+        response = requests.get(image_url, params=params)
+        save_photo(response.url, filename)
 
 
 def main():

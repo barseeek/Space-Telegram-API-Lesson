@@ -23,7 +23,12 @@ def create_parser():
     parser = argparse.ArgumentParser(
         description='Get photos from spacex launch by id'
     )
-    parser.add_argument('id', nargs='?', help='Enter launch id', default='latest')
+    parser.add_argument(
+        'id',
+        nargs='?',
+        help='Enter launch id',
+        default='latest'
+    )
     return parser
 
 
