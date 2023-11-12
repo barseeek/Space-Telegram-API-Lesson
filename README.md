@@ -33,11 +33,13 @@ A helper script with functions to save photo, get file name and file extension.
 2. Create a `.env` file in the same directory as the script with the following content, filled in:
   * `NASA_API_KEY` - your actual [NASA access key](https://api.nasa.gov/):
   * `PUBLISH_TIMER` - publish delay time in seconds
-  * `BOT_TOKEN` - your actual [BOT TOKEN](https://t.me/BotFather)
+  * `TELEGRAM_BOT_TOKEN` - your actual [BOT TOKEN](https://t.me/BotFather)
+  * `TELEGRAM_CHAT_ID` - link to your telegram channel
+
 ```
 NASA_API_KEY=YOUR_NASA_API_KEY
 PUBLISH_TIMER=YOUR_TIMER_IN_SECONDS
-BOT_TOKEN=YOUR_BOT_TOKEN
+TELEGRAM_BOT_TOKEN=YOUR_TELEGRAM_BOT_TOKEN
 ```
 Python3 should be already installed. Then use pip (or pip3, if there is a conflict with Python2) to install dependencies:
 ```

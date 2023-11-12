@@ -22,20 +22,20 @@ def create_parser():
 def main():
     load_dotenv()
     filename = create_parser().parse_args().filename
-    if filename is None:
+    if not (filename):
         photos = [photo for _, _, files in os.walk('images/')
                   for photo in files]
         filename = random.choice(photos)
-    print(filename)
-    chat_id = "@space_imagess"
-    bot = telegram.Bot(token=os.environ['BOT_TOKEN'])
-    bot.send_photo(
-        chat_id=chat_id,
-        photo=open(
-            Path.joinpath(Path('images/'), Path(filename)),
-            'rb'
+    TELEGRAM_CHAT_ID = os.environ["TELEGRAM_CHAT_ID"]
+    bot = telegram.Bot(token=os.environ['TELEGRAM_BOT_TOKEN'])
+    with open(
+        Path.joinpath(Path('images/'), Path(filename)),
+        'rb'
+    ) as photo_file:
+        bot.send_photo(
+            TELEGRAM_CHAT_ID=TELEGRAM_CHAT_ID,
+            photo=photo_file
         )
-    )
 
 
 if __name__ == "__main__":

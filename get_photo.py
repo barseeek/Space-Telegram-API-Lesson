@@ -14,10 +14,6 @@ def save_photo(url, filename, path=Path("images/")):
         file.write(response.content)
 
 
-def get_filename(prefix, number, extension):
-    return "{0}_{1}{2}".format(prefix, number, extension)
-
-
 def get_extension(url):
     hierarchical_path = urlparse(url).path
     extension = os.path.splitext(hierarchical_path)[1]

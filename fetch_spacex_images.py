@@ -3,19 +3,18 @@ import argparse
 
 from pathlib import Path
 from get_photo import get_extension
-from get_photo import get_filename
 from get_photo import save_photo
 
 
-def fetch_spacex_last_launch(id):
+def fetch_spacex_last_launch(launch_id):
     path = Path("images/")
-    url = f"https://api.spacexdata.com/v5/launches/{id}"
+    url = f"https://api.spacexdata.com/v5/launches/{launch_id}"
     response = requests.get(url)
     response.raise_for_status()
     photo_links = response.json()["links"]["flickr"]["original"]
     for photo_number, photo_url in enumerate(photo_links):
         photo_ext = get_extension(photo_url)
-        filename = get_filename("spacex2", photo_number, photo_ext)
+        filename = "{0}_{1}{2}".format("spacex2", photo_number, photo_ext)
         save_photo(photo_url, filename, path)
 
 
