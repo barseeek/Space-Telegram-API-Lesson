@@ -26,14 +26,14 @@ def main():
         photos = [photo for _, _, files in os.walk('images/')
                   for photo in files]
         filename = random.choice(photos)
-    TELEGRAM_CHAT_ID = os.environ["TELEGRAM_CHAT_ID"]
+    telegram_chat_id = os.environ["TELEGRAM_CHAT_ID"]
     bot = telegram.Bot(token=os.environ['TELEGRAM_BOT_TOKEN'])
     with open(
         Path.joinpath(Path('images/'), Path(filename)),
         'rb'
     ) as photo_file:
         bot.send_photo(
-            TELEGRAM_CHAT_ID=TELEGRAM_CHAT_ID,
+            chat_id=telegram_chat_id,
             photo=photo_file
         )
 

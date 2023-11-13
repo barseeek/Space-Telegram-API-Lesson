@@ -6,7 +6,7 @@ from get_photo import get_extension
 from get_photo import save_photo
 
 
-def fetch_spacex_last_launch(launch_id):
+def fetch_spacex_last_launch(launch_id="latest"):
     path = Path("images/")
     url = f"https://api.spacexdata.com/v5/launches/{launch_id}"
     response = requests.get(url)
@@ -14,7 +14,7 @@ def fetch_spacex_last_launch(launch_id):
     photo_links = response.json()["links"]["flickr"]["original"]
     for photo_number, photo_url in enumerate(photo_links):
         photo_ext = get_extension(photo_url)
-        filename = "{0}_{1}{2}".format("spacex2", photo_number, photo_ext)
+        filename = "{0}_{1}{2}".format("spacex", photo_number, photo_ext)
         save_photo(photo_url, filename, path)
 
 

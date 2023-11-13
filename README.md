@@ -14,7 +14,7 @@ Retrieve Earth photos from the EPIC camera. Retrieves photo data, generates URLs
 
 #### fetch_apod_images.py
 Retrieve Photos of the Day in Astronomy.
-Extracts the URL of the photo of the day, determines the file extension from the URL, and saves the photo locally.
+Extracts the URL of the photos of the day, determines the file extension from the URL, and saves photos locally.
 
 #### publish_photos_to_tgchannel.py
 Publish photos from the ``images`` folder to the Telegram channel [Space Images](https://t.me/space_imagess) with the delay specified in the argument `timer` at startup.
@@ -40,6 +40,7 @@ A helper script with functions to save photo, get file name and file extension.
 NASA_API_KEY=YOUR_NASA_API_KEY
 PUBLISH_TIMER=YOUR_TIMER_IN_SECONDS
 TELEGRAM_BOT_TOKEN=YOUR_TELEGRAM_BOT_TOKEN
+TELEGRAM_CHAT_ID=YOUR_TELEGRAM_CHAT_ID
 ```
 Python3 should be already installed. Then use pip (or pip3, if there is a conflict with Python2) to install dependencies:
 ```

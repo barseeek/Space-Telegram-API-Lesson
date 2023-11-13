@@ -1,4 +1,3 @@
-from urllib.parse import urlparse, urlunparse
 import requests
 import os
 
@@ -20,14 +19,13 @@ def get_nasa_epic_photos(api_key):
         date_string = datetime.fromisoformat(photo["date"]) \
             .date().strftime("%Y/%m/%d")
         image_url = "/".join([url_to_download, date_string, "png", filename])
-        parts_of_url = urlparse(image_url)._replace(query=f'api_key={api_key}')
-        save_photo(urlunparse(parts_of_url), filename)
+        save_photo(image_url, filename, params=params)
 
 
 def main():
-    api_key = os.environ['NASA_API_KEY']
     load_dotenv()
-    get_nasa_epic_photos(api_key)
+    nasa_api_key = os.environ['NASA_API_KEY']
+    get_nasa_epic_photos(nasa_api_key)
 
 
 if __name__ == '__main__':

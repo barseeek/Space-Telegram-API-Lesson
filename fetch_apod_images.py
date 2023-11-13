@@ -27,9 +27,9 @@ def get_nasa_apod_photos(api_key):
 
 
 def main():
-    api_key = os.environ['NASA_API_KEY']
     load_dotenv()
-    get_nasa_apod_photos(api_key)
+    nasa_api_key = os.environ['NASA_API_KEY']
+    get_nasa_apod_photos(nasa_api_key)
 
 
 if __name__ == '__main__':
